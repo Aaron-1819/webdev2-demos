@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function NewEvent({ onCreateEvent, onCloseNewEvent }) {
+export default function NewEvent({ handleCreateEvent, handleCloseNewEvent }) {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
@@ -18,14 +18,14 @@ export default function NewEvent({ onCreateEvent, onCloseNewEvent }) {
       description,
     };
 
-    onCreateEvent(newEvent);
+    handleCreateEvent(newEvent);
 
     setName("");
     setDate("");
     setLocation("");
     setDescription("");
 
-    onCloseNewEvent();
+    handleCloseNewEvent();
   };
 
   const handleNameChange = (event) => {
@@ -47,12 +47,12 @@ export default function NewEvent({ onCreateEvent, onCloseNewEvent }) {
   return (
     <div
       className="absolute h-full w-full bg-blue-gray-100 flex items-center justify-center bg-gray-950/90"
-      onClick={onCloseNewEvent}
+      onClick={handleCloseNewEvent}
     >
       <div
         className="w-full max-w-md bg-white p-8 rounded-lg shadow-md"
         onClick={(e) => {
-          e.stopPropagation(); // prevent click from bubbling up to parent div
+          e.stopPropagation();
         }}
       >
         <h1 className="text-2xl text-gray-800 font-bold mb-8">

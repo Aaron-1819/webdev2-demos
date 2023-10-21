@@ -53,8 +53,8 @@ export default function Page() {
 
       {newEventOpen && (
         <NewEvent
-          onCreateEvent={handleCreateEvent}
-          onCloseNewEvent={handleCloseNewEvent}
+          handleCreateEvent={handleCreateEvent}
+          handleCloseNewEvent={handleCloseNewEvent}
         />
       )}
       <EventList events={events} />
